@@ -6,5 +6,6 @@ bower_components
 .grunt
 .idea
 .publish
+npm-debug.log
 
 .settings/settings.json
