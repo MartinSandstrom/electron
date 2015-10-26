@@ -1,0 +1,10 @@
+node_modules
+dist
+.tmp
+.sass-cache
+bower_components
+.grunt
+.idea
+.publish
+
+.settings/settings.json

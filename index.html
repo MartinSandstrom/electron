@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+    <head>
+        <title>hacker news</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/united-bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon" />
+        <link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon" />
+        <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon" />
+    </head>
+    <body ng-app="hackerNewsApp" ng-cloak>
+        <div ng-controller="newsController as vm" class="container">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#features-dropdown">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Hacker News</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="features-dropdown">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#" ng-click="vm.getStories('newstories')">new<span class="sr-only">(current)</span></a></li>
+                            <li><a href="#" ng-click="vm.getStories('topstories')">top <span class="sr-only">(current)</span></a></li>
+                            <!--<li><a href="#" ng-click="vm.getStories('commentstories')">comments <span class="sr-only">(current)</span></a></li>-->
+                            <li><a href="#" ng-click="vm.getStories('showstories')">show <span class="sr-only">(current)</span></a></li>
+                            <li><a href="#" ng-click="vm.getStories('askstories')">ask <span class="sr-only">(current)</span></a></li>
+                            <li><a href="#" ng-click="vm.getStories('jobstories')">jobs <span class="sr-only">(current)</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="stories" ng-repeat="(key, story) in vm.stories">
+                <div>
+                    <span class="title">{{ key + 1 }}. <a href='{{ story.url}}'>{{ story.title }}</a></span>
+                    <p>{{ story.score }} point
+                        <span ng-if="story.score != 1">s</span> by <strong>
+                            <a href="https://news.ycombinator.com/user?id={{story.by}}">{{ story.by }}</a>
+                            </strong> {{ story.time * 1000 | datediff }} </p>
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="button" class="btn btn-default" ng-click="vm.viewMoreItems()">view 10 more</button>
+            </div>
+        </div>
+
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="js/bootstrapOverride.js"></script>
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="js/NewsController.js"></script>
+        <script src="js/NewsService.js"></script>
+    </body>
+</html>

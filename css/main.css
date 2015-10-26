@@ -1,0 +1,23 @@
+body {
+    padding-top: 70px;
+}
+
+h1{
+    color: #dd4814;
+}
+
+.title{
+    font-size: 25px;
+}
+
+.title a{
+    color: black;
+}
+
+.container{
+    padding-bottom: 20px;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
